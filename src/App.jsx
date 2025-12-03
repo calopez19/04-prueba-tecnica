@@ -9,6 +9,7 @@ const CAT_END_POINT_FACT = "https://catfact.ninja/fact";
 function App() {
   const [fact, setFact] = useState("");
   const [image, setImage] = useState(null);
+  const [factError, setFactError] = useState();
 
   const changeFact = () => {
     fetch(CAT_END_POINT_FACT)
