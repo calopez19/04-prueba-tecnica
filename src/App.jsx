@@ -1,6 +1,6 @@
 import "./App.css";
 import { useCatImages } from "./useCatImages.jsx";
-import { useCatFact } from "./useCatFact.jsx";
+import { useCatFact } from "./hooks/useCatFact.jsx";
 
 function App() {
   const { fact, refreshRandomFact } = useCatFact();

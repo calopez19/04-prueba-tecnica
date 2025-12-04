@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { changeFact } from "./fats";
+import { changeFact } from "../fats";
 
 export function useCatFact() {
   const [fact, setFact] = useState();
