@@ -1,35 +1,24 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import "./App.css";
-
-const CAT_END_POINT_IMAGE_Part1 = "https://cataas.com/cat/says/";
-const CAT_END_POINT_IMAGE_Part2 = "?fontSize=50&fontColor=red&json=true";
-const CAT_END_POINT_FACT = "https://catfact.ninja/fact";
+import { changeFact } from "./fats.js";
+import { CAT_END_POINT_IMAGE_Part1, CAT_END_POINT_IMAGE_Part2 } from "./CAT_END_POINT_IMAGE_Part1.jsx";
 
 function App() {
   const [fact, setFact] = useState("");
   const [image, setImage] = useState(null);
   const [factError, setFactError] = useState();
 
-  const changeFact = () => {
-    fetch(CAT_END_POINT_FACT)
-      .then((res) => res.json())
-      .then((data) => {
-        const newFact = data.fact;
-        setFact(newFact);
-        const firstThreeWords = newFact.split(" ").slice(0, 3).join(" ");
-        console.log(firstThreeWords);
-      });
-  };
-
-
   const handleClick = () => {
-    changeFact();
+    changeFact().then((newFact) => {
+      setFact(newFact)
+    })
   };
-
 
   useEffect(() => {
-    changeFact();
+    changeFact().then((newFact) => {
+      setFact(newFact)
+    })
   }, []);
 
   useEffect(() => {
