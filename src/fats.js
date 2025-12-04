@@ -1,4 +1,4 @@
-import { CAT_END_POINT_FACT} from "./CAT_END_POINT_IMAGE_Part1.jsx";
+import { CAT_END_POINT_FACT} from "./constans.js";
 
 
 export const changeFact = async () => {
