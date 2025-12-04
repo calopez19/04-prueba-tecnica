@@ -1,27 +1,14 @@
-import { useState } from "react";
-import { useEffect } from "react";
 import "./App.css";
-import { changeFact } from "./fats.js";
 import { useCatImages } from "./useCatImages.jsx";
-
+import { useCatFact } from "./useCatFact.jsx";
 
 function App() {
-  const [fact, setFact] = useState("");
-  const [factError, setFactError] = useState();
-  const {image} = useCatImages({ fact:fact })
+  const { fact, refreshRandomFact } = useCatFact();
+  const { image } = useCatImages({ fact: fact });
 
-  const handleClick = () => {
-    changeFact().then((newFact) => {
-      setFact(newFact)
-    })
+  const handleClick = async () => {
+    refreshRandomFact();
   };
-
-  useEffect(() => {
-    changeFact().then((newFact) => {
-      setFact(newFact)
-    })
-  }, []);
-
 
   return (
     <>
